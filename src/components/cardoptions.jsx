@@ -8,7 +8,9 @@ import Tooltip from "@mui/material/Tooltip"
 const CardOptions = () => {
     const stylerow = {
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignSelf: "flex-end",
+        gap: "10px"
     }
    
     const style = {
@@ -18,11 +20,15 @@ const CardOptions = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: "auto",
         bgcolor: 'background.paper',
-        border: '2px solid #000',
+        backgroundColor: "#fff",
         boxShadow: 24,
-        p: 4,
+        padding: "0px 20px 10px 20px",
+        border: "None",
+        borderRadius: "10px",
+        textAlign: "right",
+        gap: "7.5px"
     };
 
     const [open, setOpen] = useState(false)
@@ -42,12 +48,12 @@ const CardOptions = () => {
             </button>
             <Modal open={open} onClose={(handleCloseModal)}>
                 <div style={style}>
-                    <p>Want to delete this Note?</p>
+                    <p>Are you sure you want to <b style={{color: "red"}}>delete</b> this <b>Note</b>?</p>
                     <div style={stylerow}>
-                        <button onClick={() => setOpen(!open)}>
+                        <button onClick={() => setOpen(false)} style={{backgroundColor: "lightgray"}}>
                             No
                         </button>
-                        <button>
+                        <button style={{backgroundColor: "red", color: "white"}}>
                             Delete
                         </button>
                     </div>

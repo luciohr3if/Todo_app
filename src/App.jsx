@@ -1,4 +1,5 @@
 import './App.css'
+import ThemeComponent from './components/theme'
 import TodoForm from './components/todoForm'
 import TodoList from './components/todoList'
 
@@ -6,7 +7,10 @@ function App() {
 
   return (
     <div>
-     <TodoList/>
+        <ThemeComponent />
+        <h1>YOUR TO-DO LIST</h1>
+        <TodoForm />
+        <TodoList/>
     </div>
   )
 }

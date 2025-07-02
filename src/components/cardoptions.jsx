@@ -1,66 +1,120 @@
-import { useState } from "react";
-import { StyledMoreVertIcon } from "../Icons/Icons"
+import { useState } from 'react';
+import {
+  StyledEditNoteIcon,
+  StyledDeleteIcon,
+  StyledArrowUpwardIcon,
+  StyledArrowDownwardIcon
+} from '../Icons/Icons';
 import Modal from '@mui/material/Modal';
-import { StyledEditNoteIcon, StyledDeleteIcon } from "../Icons/Icons"
-import Tooltip from "@mui/material/Tooltip"
+import Tooltip from '@mui/material/Tooltip';
+import styled from 'styled-components';
 
+const Input = styled.input`
+  padding: 7px;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
 
-const CardOptions = () => {
-    const stylerow = {
-        display: 'flex',
-        flexDirection: 'row',
-        alignSelf: "flex-end",
-        gap: "10px"
+const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentText }) => {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [editValue, setEditValue] = useState(currentText);
+
+  const modalStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 'auto',
+    backgroundColor: '#fff',
+    boxShadow: 24,
+    padding: '20px',
+    borderRadius: '10px',
+    gap: '10px',
+    minWidth: '250px',
+  };
+
+  const rowStyle = {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    gap: '10px',
+  };
+
+  const confirmDelete = () => {
+    onDelete();
+    setOpenDeleteModal(false);
+  };
+
+  const confirmEdit = () => {
+    const trimmed = editValue.trim();
+    if (trimmed) {
+      onEditConfirm(trimmed);
+      setOpenEditModal(false);
     }
-   
-    const style = {
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: "auto",
-        bgcolor: 'background.paper',
-        backgroundColor: "#fff",
-        boxShadow: 24,
-        padding: "0px 20px 10px 20px",
-        border: "None",
-        borderRadius: "10px",
-        textAlign: "right",
-        gap: "7.5px"
-    };
+  };
 
-    const [open, setOpen] = useState(false)
-    const handleOpendModal = () => setOpen(true)
-    const handleCloseModal = () => setOpen(false)
-    return (
-        <div style={{backgroundColor: "transparent"}}>
-            <button onClick={handleOpendModal} style={{backgroundColor: "transparent"}}>
-                <Tooltip title="Delete Note" placement="right">
-                    <StyledDeleteIcon/>
-                </Tooltip>
+  return (
+    <div style={{ backgroundColor: 'transparent', display: 'flex', gap: '8px' }}>
+      <Tooltip title="Mover para cima">
+        <button onClick={onMoveUp} style={{ backgroundColor: 'transparent' }}>
+          <StyledArrowUpwardIcon />
+        </button>
+      </Tooltip>
+
+      <Tooltip title="Mover para baixo">
+        <button onClick={onMoveDown} style={{ backgroundColor: 'transparent' }}>
+          <StyledArrowDownwardIcon />
+        </button>
+      </Tooltip>
+
+      <Tooltip title="Editar nota">
+        <button onClick={() => setOpenEditModal(true)} style={{ backgroundColor: 'transparent' }}>
+          <StyledEditNoteIcon />
+        </button>
+      </Tooltip>
+
+      <Tooltip title="Excluir nota">
+        <button onClick={() => setOpenDeleteModal(true)} style={{ backgroundColor: 'transparent' }} variant='contained'>
+          <StyledDeleteIcon />
+        </button>
+      </Tooltip>
+
+      <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
+        <div style={modalStyle}>
+          <p>
+            Are you sure you want to <b style={{ color: 'red' }}>delete</b> this <b>Note</b>?
+          </p>
+          <div style={rowStyle}>
+            <button onClick={() => setOpenDeleteModal(false)}>No</button>
+            <button onClick={confirmDelete} style={{ backgroundColor: 'red', color: 'white' }}>
+              Delete
             </button>
-            <button onClick={handleOpendModal} style={{backgroundColor: "transparent"}}>
-                <Tooltip title="Edit Note" placement="right">
-                    <StyledEditNoteIcon/>
-                </Tooltip>
-            </button>
-            <Modal open={open} onClose={(handleCloseModal)}>
-                <div style={style}>
-                    <p>Are you sure you want to <b style={{color: "red"}}>delete</b> this <b>Note</b>?</p>
-                    <div style={stylerow}>
-                        <button onClick={() => setOpen(false)} style={{backgroundColor: "lightgray"}}>
-                            No
-                        </button>
-                        <button style={{backgroundColor: "red", color: "white"}}>
-                            Delete
-                        </button>
-                    </div>
-                </div>
-                
-            </Modal>
+          </div>
         </div>
-    )
-}
-export default CardOptions
+      </Modal>
+      <Modal open={openEditModal} onClose={() => setOpenEditModal(false)}>
+        <div style={modalStyle}>
+          <h4>Edit Note</h4>
+          <Input
+            type="text"
+            value={editValue}
+            onChange={(e) => setEditValue(e.target.value)}
+            autoFocus
+          />
+          <div style={rowStyle}>
+            <button onClick={() => setOpenEditModal(false)}>Cancel</button>
+            <button onClick={confirmEdit} style={{ backgroundColor: 'green', color: 'white' }}>
+              Save
+            </button>
+          </div>
+        </div>
+      </Modal>
+    </div>
+  );
+};
+
+export default CardOptions;

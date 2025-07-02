@@ -4,6 +4,9 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styled from 'styled-components';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+
 
 export const StyledEditNoteIcon = styled(EditNoteIcon)`
     color: black;
@@ -18,9 +21,19 @@ export const StyledMoreVertIcon = styled(MoreVertIcon)`
 `
 
 export const StyledLightModeIcon = styled(LightModeIcon)`
-    color: black;
+    color: ${({ theme }) => theme};
+    transition: color 0.3s ease;
 `
 
 export const StyledDarkModeIcon = styled(DarkModeIcon)`
+    color: ${({ theme }) => theme};
+    transition: color 0.3s ease;
+`
+
+export const StyledArrowUpwardIcon = styled(ArrowUpwardIcon)`
+    color: black;
+`
+
+export const StyledArrowDownwardIcon = styled(ArrowDownwardIcon)`
     color: black;
 `

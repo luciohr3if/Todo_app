@@ -7,15 +7,8 @@ import {
 } from '../Icons/Icons';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import styled from 'styled-components';
+import { EditInput } from '../styles/StyledComponents';
 
-const Input = styled.input`
-  padding: 7px;
-  font-size: 16px;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
 
 const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentText }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -99,7 +92,7 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
       <Modal open={openEditModal} onClose={() => setOpenEditModal(false)}>
         <div style={modalStyle}>
           <h4>Edit Note</h4>
-          <Input
+          <EditInput
             type="text"
             value={editValue}
             onChange={(e) => setEditValue(e.target.value)}

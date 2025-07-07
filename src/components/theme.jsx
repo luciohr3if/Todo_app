@@ -11,7 +11,6 @@ const ThemeToggle = ({ currentTheme, toggleTheme }) => {
         checked={isDark}
         onChange={toggleTheme}
         color="default"
-        inputProps={{ "aria-label": "toggle theme" }}
       />
       <StyledDarkModeIcon />
     </div>

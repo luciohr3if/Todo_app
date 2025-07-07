@@ -1,28 +1,13 @@
 import styled from 'styled-components';
 import PushPinIcon from "@mui/icons-material/PushPin";
 import CardOptions from './cardoptions';
-
-const Card = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: lightgrey;
-  padding: 10px 15px;
-  border-radius: 7.5px;
-  margin: 10px 0;
-  background-color: ${({ important }) => (important ? "#fff5e6" : "lightgrey")};
-`;
+import { Card } from '../styles/StyledComponents';
 
 const PinIcon = styled(PushPinIcon)`
-  color: ${({ important }) => (important ? "orange" : "gray")};
+  color: ${({ important }) => (important ? "#bd3026" : "#998c8b")};
   cursor: pointer;
   margin-right: 10px;
   transition: color 0.3s ease;
-`;
-
-const Text = styled.p`
-  flex: 1;
-  margin: 0;
 `;
 
 const TodoCard = ({
@@ -41,7 +26,7 @@ const TodoCard = ({
         onClick={onToggleImportant}
         title={important ? "Unmark as important" : "Mark as important"}
       />
-      <Text>{text}</Text>
+      <p style={{flex: 1, margin: 0}}>{text}</p>
       <CardOptions
         currentText={text}
         onDelete={onDelete}

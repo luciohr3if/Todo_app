@@ -7,7 +7,7 @@ import {
 } from '../Icons/Icons';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import { EditInput } from '../styles/StyledComponents';
+import { EditInput, EditModal } from '../styles/StyledComponents';
 
 
 const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentText }) => {
@@ -51,26 +51,26 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
   };
 
   return (
-    <div style={{ backgroundColor: 'transparent', display: 'flex', gap: '8px' }}>
-      <Tooltip title="Mover para cima">
+    <div style={{ backgroundColor: 'orange', display: 'flex', gap: '8px', flexDirection: "row", marginLeft: "auto"}}>
+      <Tooltip title="Move Up">
         <button onClick={onMoveUp} style={{ backgroundColor: 'transparent' }}>
           <StyledArrowUpwardIcon />
         </button>
       </Tooltip>
 
-      <Tooltip title="Mover para baixo">
+      <Tooltip title="Move Down">
         <button onClick={onMoveDown} style={{ backgroundColor: 'transparent' }}>
           <StyledArrowDownwardIcon />
         </button>
       </Tooltip>
 
-      <Tooltip title="Editar nota">
+      <Tooltip title="Edit Task">
         <button onClick={() => setOpenEditModal(true)} style={{ backgroundColor: 'transparent' }}>
           <StyledEditNoteIcon />
         </button>
       </Tooltip>
 
-      <Tooltip title="Excluir nota">
+      <Tooltip title="Delete Task">
         <button onClick={() => setOpenDeleteModal(true)} style={{ backgroundColor: 'transparent' }} variant='contained'>
           <StyledDeleteIcon />
         </button>
@@ -90,21 +90,21 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
         </div>
       </Modal>
       <Modal open={openEditModal} onClose={() => setOpenEditModal(false)}>
-        <div style={modalStyle}>
-          <h4>Edit Note</h4>
+        <EditModal>
+          <h2>EDIT TASK</h2>
           <EditInput
             type="text"
             value={editValue}
             onChange={(e) => setEditValue(e.target.value)}
             autoFocus
           />
-          <div style={rowStyle}>
+          <div className='btns-edit-modal'>
             <button onClick={() => setOpenEditModal(false)}>Cancel</button>
-            <button onClick={confirmEdit} style={{ backgroundColor: 'green', color: 'white' }}>
+            <button onClick={confirmEdit}>
               Save
             </button>
           </div>
-        </div>
+        </EditModal>
       </Modal>
     </div>
   );

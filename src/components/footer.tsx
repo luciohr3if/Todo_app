@@ -1,13 +1,15 @@
-const StyledFooter = () => {
+import { StyledFooter } from "../styles/StyledComponents"
+
+const Footer = () => {
     return (
-        <div style={{display: "flex", margin: 0, width: "1440px", backgroundColor: "grey", flexDirection: "column", alignItems: "center", justifyContent: "center", marginTop: "auto"}}>
+        <StyledFooter>
             <h2>MADE WITH</h2>
-            <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: "15px"}}>
-                <img src=".\public\muiIcon.svg" alt="MUI Icon" />
-                <img src=".\public\reactIcon.svg" alt="React Icon" />
-                <img src=".\public\nodeIcon.svg" alt="Node Icon" />
+            <div className="icon-footer-div">
+                <img width={"35px"} height={"35px"} src=".\public\reactIcon.svg" alt="React Icon" />
+                <img width={"35px"} height={"35px"} src=".\public\nodeIcon.svg" alt="Node Icon" />
+                <img width={"35px"} height={"35px"} src=".\public\muiIcon.svg" alt="MUI Icon" />
             </div>
-        </div>
+        </StyledFooter>
     )
 }
-export default StyledFooter
+export default Footer

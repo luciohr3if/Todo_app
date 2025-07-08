@@ -1,13 +1,6 @@
-import styled from 'styled-components';
+import { List } from '../styles/StyledComponents';
 import TodoCard from './TodoCard';
 
-const List = styled.ul`
-  list-style: none;
-  padding: 0;
-  max-width: 500px;
-  margin: 0 auto;
-
-`;
 
 function TodoList({ todos, setTodos }) {
 
@@ -39,7 +32,7 @@ function TodoList({ todos, setTodos }) {
 
   const sortedTodos = [...todos].sort((a, b) => {
     if (a.important === b.important) return 0;
-    return a.important ? -1 : 1; // important = true vem antes
+    return a.important ? -1 : 1; 
   });
 
   const toggleImportant = (id) => {

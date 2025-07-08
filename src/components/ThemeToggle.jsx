@@ -1,11 +1,12 @@
 import Switch from "@mui/material/Switch";
 import { StyledDarkModeIcon, StyledLightModeIcon } from "../Icons/Icons";
+import { StyledThemeToggle } from "../styles/StyledComponents";
 
 const ThemeToggle = ({ currentTheme, toggleTheme }) => {
   const isDark = currentTheme === "dark";
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "10px", alignSelf: "flex-end" }}>
+    <StyledThemeToggle>
       <StyledLightModeIcon />
       <Switch
         checked={isDark}
@@ -13,7 +14,7 @@ const ThemeToggle = ({ currentTheme, toggleTheme }) => {
         color="default"
       />
       <StyledDarkModeIcon />
-    </div>
+    </StyledThemeToggle>
   );
 };
 

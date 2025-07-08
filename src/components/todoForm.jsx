@@ -24,6 +24,7 @@ const TodoForm = ({ setTodos }) => {
         placeholder="Type Anything..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        autoFocus
       />
       <Button type="submit">ADD TASK</Button>
     </Form>

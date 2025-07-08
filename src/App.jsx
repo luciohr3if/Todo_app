@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { loadFromStorage, saveToStorage } from "./utils/storage";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
-import ThemeToggle from "./components/theme";
+import ThemeToggle from "./components/ThemeToggle";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
-import StyledFooter from "./components/footer";
+import Footer from "./components/Footer";
 import { MainDiv } from "./styles/StyledComponents";
 
 const GlobalStyle = createGlobalStyle`
@@ -50,7 +50,7 @@ function App() {
           <ThemeToggle toggleTheme={toggleTheme} currentTheme={theme} />
           <TodoForm setTodos={setTodos} />
           <TodoList todos={todos} setTodos={setTodos} />
-          <StyledFooter />
+          <Footer />
         </ThemeProvider>
     </MainDiv>
   )

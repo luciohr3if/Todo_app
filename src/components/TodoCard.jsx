@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import PushPinIcon from "@mui/icons-material/PushPin";
-import CardOptions from './cardoptions';
 import { Card } from '../styles/StyledComponents';
+import CardOptions from './CardOptions';
+import Tooltip from '@mui/material/Tooltip';
 
 const PinIcon = styled(PushPinIcon)`
   color: ${({ important }) => (important ? "#bd3026" : "#998c8b")};
@@ -21,12 +22,13 @@ const TodoCard = ({
 }) => {
   return (
     <Card important={important}>
-      <PinIcon
-        important={important}
-        onClick={onToggleImportant}
-        title={important ? "Unmark as important" : "Mark as important"}
-      />
-      <p style={{flex: 1, margin: 0}}>{text}</p>
+      <Tooltip title={important ? "Unmark as important" : "Mark as important"}>
+        <PinIcon
+          important={important}
+          onClick={onToggleImportant}
+        />
+      </Tooltip>
+      <p style={{maxWidth: "500px", overflowWrap: "break-word", textAlign: "left"}}>{text}</p>
       <CardOptions
         currentText={text}
         onDelete={onDelete}

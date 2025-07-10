@@ -6,7 +6,8 @@ export const lightTheme = {
   card: "#e0e0e0",
   button: "#0077cc",
   buttonText: "#ffffff",
-  inputBackground: "#DEE2E6"
+  inputBackground: "#DEE2E6",
+  inputText: "#6C757D"
 };
 
 export const darkTheme = {
@@ -17,5 +18,6 @@ export const darkTheme = {
   card: "#6C757D",
   button: "#3399ff",
   buttonText: "#000000",
-  inputBackground: "#495057"
+  inputBackground: "#495057",
+  inputText: "#CED4DA"
 };

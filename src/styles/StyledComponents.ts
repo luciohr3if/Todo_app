@@ -55,7 +55,7 @@ export const FormInput = styled.input`
   background-color: ${({ theme }) => theme.inputBackground};
 
   &::placeholder {
-    color: #CED4DA;
+    color: ${({ theme }) => theme.inputText};
   }
 `;
 

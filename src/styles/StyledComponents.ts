@@ -14,7 +14,7 @@ export const StyledForm = styled.div`
 `
 export const Button = styled.button`
   padding: 10px 15px;
-  background-color: #004e98;
+  background-color:rgb(31, 107, 178);
   color: white;
   border: none;
   border-radius: 5px;
@@ -22,7 +22,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color:rgb(3, 65, 123);
+    background-color:rgb(8, 85, 157);
   }
 `;
 
@@ -31,11 +31,12 @@ export const Card = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: lightgrey;
   padding: 10px 15px;
+  gap: 15px;
   border-radius: 7.5px;
   margin: 10px 0;
-  background-color: "lightgrey";
+  background-color: ${({ theme }) => theme.card};
+  color: ${({ theme }) => theme.text};
 `;
 
 export const Form = styled.form`
@@ -51,6 +52,11 @@ export const FormInput = styled.input`
   border: 2px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
+  background-color: ${({ theme }) => theme.inputBackground};
+
+  &::placeholder {
+    color: #CED4DA;
+  }
 `;
 
 export const EditInput = styled.input`
@@ -90,6 +96,37 @@ export const EditModal = styled.div`
   }
 `
 
+export const DeleteModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  text-align: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #595c61;
+  border-radius: 12.5px;
+  padding: 10px;
+  width: 400px;
+
+  p {
+    color: white;
+  }
+
+  .btns-delete-modal {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-top: 12px;
+    gap: 10px;
+  }
+
+  .btns-delete-modal :nth-child(2) {
+    background-color: red;
+    color: white;
+  }
+`
+
 export const StyledThemeToggle = styled.div`
   display: flex;
   align-items: center;
@@ -124,5 +161,18 @@ export const StyledFooter = styled.div`
     align-items: center;
     justify-content: center;
     gap: 7.5px;
+  }
+`
+
+export const StyledCardOptionsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-left: auto;
+
+  .btn-option {
+    background-color: transparent;
+    padding: 5px;
+    border: none;
   }
 `

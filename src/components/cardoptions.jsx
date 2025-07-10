@@ -7,35 +7,13 @@ import {
 } from '../Icons/Icons';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import { EditInput, EditModal } from '../styles/StyledComponents';
+import { DeleteModal, EditInput, EditModal, StyledCardOptionsDiv } from '../styles/StyledComponents';
 
 
 const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentText }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [editValue, setEditValue] = useState(currentText);
-
-  const modalStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 'auto',
-    backgroundColor: '#fff',
-    boxShadow: 24,
-    padding: '20px',
-    borderRadius: '10px',
-    gap: '10px',
-    minWidth: '250px',
-  };
-
-  const rowStyle = {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    gap: '10px',
-  };
 
   const confirmDelete = () => {
     onDelete();
@@ -51,43 +29,37 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
   };
 
   return (
-    <div style={{ backgroundColor: 'orange', display: 'flex', gap: '8px', flexDirection: "row", marginLeft: "auto"}}>
+    <StyledCardOptionsDiv>
       <Tooltip title="Move Up">
-        <button onClick={onMoveUp} style={{ backgroundColor: 'transparent' }}>
+        <button className='btn-option' onClick={onMoveUp} >
           <StyledArrowUpwardIcon />
         </button>
       </Tooltip>
-
       <Tooltip title="Move Down">
-        <button onClick={onMoveDown} style={{ backgroundColor: 'transparent' }}>
+        <button className='btn-option' onClick={onMoveDown}>
           <StyledArrowDownwardIcon />
         </button>
       </Tooltip>
-
       <Tooltip title="Edit Task">
-        <button onClick={() => setOpenEditModal(true)} style={{ backgroundColor: 'transparent' }}>
+        <button className='btn-option' onClick={() => setOpenEditModal(true)}>
           <StyledEditNoteIcon />
         </button>
       </Tooltip>
-
       <Tooltip title="Delete Task">
-        <button onClick={() => setOpenDeleteModal(true)} style={{ backgroundColor: 'transparent' }} variant='contained'>
+        <button className='btn-option' onClick={() => setOpenDeleteModal(true)}>
           <StyledDeleteIcon />
         </button>
       </Tooltip>
-
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
-        <div style={modalStyle}>
+        <DeleteModal>
           <p>
             Are you sure you want to <b style={{ color: 'red' }}>delete</b> this <b>Note</b>?
           </p>
-          <div style={rowStyle}>
+          <div className='btns-delete-modal'>
             <button onClick={() => setOpenDeleteModal(false)}>No</button>
-            <button onClick={confirmDelete} style={{ backgroundColor: 'red', color: 'white' }}>
-              Delete
-            </button>
+            <button onClick={confirmDelete}>Delete</button>
           </div>
-        </div>
+        </DeleteModal>
       </Modal>
       <Modal open={openEditModal} onClose={() => setOpenEditModal(false)}>
         <EditModal>
@@ -106,7 +78,7 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
           </div>
         </EditModal>
       </Modal>
-    </div>
+    </StyledCardOptionsDiv>
   );
 };
 

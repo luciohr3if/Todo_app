@@ -9,11 +9,11 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 
 export const StyledEditNoteIcon = styled(EditNoteIcon)`
-    color: black;
+    color: ${({ theme }) => theme.iconColor};
 `
 
 export const StyledDeleteIcon = styled(DeleteIcon)`
-    color: black;
+    color: ${({ theme }) => theme.iconColor};
 `
 
 export const StyledMoreVertIcon = styled(MoreVertIcon)`
@@ -21,19 +21,19 @@ export const StyledMoreVertIcon = styled(MoreVertIcon)`
 `
 
 export const StyledLightModeIcon = styled(LightModeIcon)`
-    color: ${({ theme }) => theme};
+    color: ${({ theme }) => theme.text};
     transition: color 0.3s ease;
 `
 
 export const StyledDarkModeIcon = styled(DarkModeIcon)`
-    color: ${({ theme }) => theme};
+    color: ${({ theme }) => theme.text};
     transition: color 0.3s ease;
 `
 
 export const StyledArrowUpwardIcon = styled(ArrowUpwardIcon)`
-    color: black;
+    color: ${({ theme }) => theme.iconColor};
 `
 
 export const StyledArrowDownwardIcon = styled(ArrowDownwardIcon)`
-    color: black;
+    color: ${({ theme }) => theme.iconColor};
 `

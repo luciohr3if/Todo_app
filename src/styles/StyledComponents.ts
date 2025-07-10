@@ -8,10 +8,6 @@ export const MainDiv = styled.div`
   align-items: center;
 `
 
-export const StyledForm = styled.div`
-    background-color: black;
-    color: white;
-`
 export const Button = styled.button`
   padding: 10px 15px;
   background-color:rgb(31, 107, 178);
@@ -43,6 +39,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 `;
 
@@ -141,9 +138,10 @@ export const DeleteModal = styled.div`
 
 export const StyledThemeToggle = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
-  flex-direction: row;
+  margin-bottom: 10px;
 `
 
 export const List = styled.ul`

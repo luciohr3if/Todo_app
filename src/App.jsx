@@ -7,7 +7,7 @@ import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
 import Footer from "./components/Footer";
 import { MainDiv } from "./styles/StyledComponents";
-import { StyledReceiptLongIcon } from "./Icons/Icons";
+
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -47,7 +47,7 @@ function App() {
     <MainDiv>
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <GlobalStyle />
-          <h1>MY TO-DO LIST <StyledReceiptLongIcon style={{fontSize: "40px"}}/> </h1>
+          <h1>MY TO-DO LIST</h1>
           <ThemeToggle toggleTheme={toggleTheme} currentTheme={theme} />
           <TodoForm setTodos={setTodos} />
           <TodoList todos={todos} setTodos={setTodos} />

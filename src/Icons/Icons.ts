@@ -49,8 +49,3 @@ export const StyledDarkModeIcon = styled(DarkModeIcon)`
     color: ${({ theme }) => theme.text};
     transition: color 0.3s ease;
 `
-
-export const StyledReceiptLongIcon = styled(ReceiptLongIcon)`
-    color: ${({ theme }) => theme.text};
-    font-size: 24px;
-`

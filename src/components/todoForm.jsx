@@ -5,14 +5,14 @@ import Modal from "@mui/material/Modal";
 const TodoForm = ({ setTodos }) => {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
-  const [openDeleteModal, setOpenDeleteModal] = useState("");
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const inputRef = useRef(null);
 
   const handleChange = (e) => {
     const value = e.target.value;
 
-    if (value.length > 180) {
-      setError("Maximum of 180 characters reached");
+    if (value.length > 500) {
+      setError("Maximum of 500 characters reached");
       return;
     }
 
@@ -51,7 +51,7 @@ const TodoForm = ({ setTodos }) => {
         <Button style={{backgroundColor: "red"}} onClick={() => setOpenDeleteModal(true)}>DELETE ALL TASKS</Button>
       </Form>
       <div style={{ color: "red", minHeight: "1em" }}>
-          {error || `${input.length}/180`}
+          {error || `${input.length}/500`}
       </div>
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
       <DeleteModal>
@@ -61,7 +61,12 @@ const TodoForm = ({ setTodos }) => {
         </p>
         <div className='btns-delete-modal'>
           <button onClick={() => setOpenDeleteModal(false)}>No</button>
-          <button onClick={() => setTodos([])}>Delete</button>
+          <button onClick={() => {
+              setTodos([]); 
+              setOpenDeleteModal(false)
+            }}
+            >Delete
+          </button>
         </div>
         </DeleteModal>
       </Modal>

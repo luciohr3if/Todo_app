@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button, Form, FormInput } from "../styles/StyledComponents";
 
 const TodoForm = ({ setTodos }) => {
   const [input, setInput] = useState("");
+  const inputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,12 +16,14 @@ const TodoForm = ({ setTodos }) => {
 
     setTodos((prevTodos) => [newTodo, ...prevTodos]);
     setInput("");
+    inputRef.current?.focus();
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <FormInput
         type="text"
+        ref={inputRef}
         placeholder="Type Anything..."
         value={input}
         onChange={(e) => setInput(e.target.value)}

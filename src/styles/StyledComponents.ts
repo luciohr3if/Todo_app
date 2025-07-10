@@ -41,6 +41,7 @@ export const Card = styled.div`
 
 export const Form = styled.form`
   display: flex;
+  flex-direction: row;
   justify-content: center;
   margin-bottom: 20px;
 `;
@@ -53,6 +54,7 @@ export const FormInput = styled.input`
   border-radius: 5px;
   margin-right: 10px;
   background-color: ${({ theme }) => theme.inputBackground};
+  color: ${({theme}) => theme.text};
 
   &::placeholder {
     color: ${({ theme }) => theme.inputText};
@@ -74,13 +76,16 @@ export const EditModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #595c61;
+  background-color: ${({theme}) => theme.modalBackground};
   border-radius: 12.5px;
-  padding: 10px;
+  padding: 10px 15px;
   width: 400px;
 
-  .input {
+  .input-modal {
     width: auto;
+    background-color: ${({theme}) => theme.inputBackground};
+    border: 2px solid #ccc;
+    color: ${({theme}) => theme.inputText};
   }
 
   .btns-edit-modal {
@@ -104,13 +109,20 @@ export const DeleteModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #595c61;
+  background-color: ${({theme}) => theme.modalBackground};
   border-radius: 12.5px;
-  padding: 10px;
-  width: 400px;
+  padding: 20px 15px 10px 15px;
+  width: auto;
+
+  h2 {
+    margin: 0;
+  }
 
   p {
-    color: white;
+    text-align: left;
+    color: ${({theme}) => theme.text};
+    margin: 0;
+    margin-top: 15px;
   }
 
   .btns-delete-modal {
@@ -148,11 +160,11 @@ export const StyledFooter = styled.div`
   width: 1440px;
   align-items: center;
   justify-content: center;
-  background-color: #343A40;
+  background-color: ${({theme}) => theme.footerBackground};
   gap: 20px;
 
   h2 {
-    color: white;
+    color: #fff;
   }
 
   .icon-footer-div {

@@ -2,6 +2,7 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
+    mode: string;
     background: string;
     text: string;
     card: string;
@@ -9,6 +10,8 @@ declare module "styled-components" {
     buttonText: string;
     inputBackground: string;
     inputText: string;
-    iconColor: string;
+    cardIconColor: string;
+    footerBackground: string;
+    modalBackground: string;
   }
 }

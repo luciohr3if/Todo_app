@@ -1,21 +1,7 @@
-import styled from 'styled-components';
-import PushPinIcon from "@mui/icons-material/PushPin";
+import { StyledPushPinIcon } from '../Icons/Icons';
 import { Card } from '../styles/StyledComponents';
 import CardOptions from './CardOptions';
 import Tooltip from '@mui/material/Tooltip';
-
-const PinIcon = styled(PushPinIcon)`
-color: ${({ theme, important }) =>
-    important
-      ? "#bd3026"
-      : theme.mode === "dark"
-      ? "#CED4DA"
-      : "#998c8b"};
-
-  cursor: pointer;
-  margin-right: 10px;
-  transition: color 0.3s ease;
-`;
 
 const TodoCard = ({
   text,
@@ -29,7 +15,7 @@ const TodoCard = ({
   return (
     <Card className='card-div' important={important}>
       <Tooltip title={important ? "Unmark as important" : "Mark as important"}>
-        <PinIcon
+        <StyledPushPinIcon
           important={important}
           onClick={onToggleImportant}
         />

@@ -52,8 +52,9 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
       </Tooltip>
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
         <DeleteModal>
+          <h2>DELETE TASK</h2>
           <p>
-            Are you sure you want to <b style={{ color: 'red' }}>delete</b> this <b>Note</b>?
+            Are you sure you want to delete this <b>Task</b>?
           </p>
           <div className='btns-delete-modal'>
             <button onClick={() => setOpenDeleteModal(false)}>No</button>
@@ -67,6 +68,7 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
           <EditInput
             type="text"
             value={editValue}
+            className='input-modal'
             onChange={(e) => setEditValue(e.target.value)}
             autoFocus
           />

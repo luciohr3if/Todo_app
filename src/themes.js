@@ -7,9 +7,9 @@ export const lightTheme = {
   button: "#0077cc",
   buttonText: "#ffffff",
   inputBackground: "#DEE2E6",
-  inputText: "#6C757D",
+  inputText: "#998c8b",
   footerBackground: "#6C757D",
-  modalBackground: "#fff"
+  modalBackground: "#ffffff"
 };
 
 export const darkTheme = {

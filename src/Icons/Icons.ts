@@ -5,7 +5,6 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import PushPinIcon from '@mui/icons-material/PushPin';
 
 interface PinIconProps {
@@ -13,12 +12,13 @@ interface PinIconProps {
 }
 
 export const StyledPushPinIcon = styled(PushPinIcon)<PinIconProps>`
-  color: ${({ theme, important }) => {
-    if (important) {
-      return theme.mode === "dark" ? "#9d0208" : "#c1121f";
-    }
-    return theme.mode === "dark" ? "#CED4DA" : "#998c8b";
-  }};
+  color: ${({ theme, important }) => 
+    important
+    ? theme.mode === "dark"
+      ? "#9d0208"
+      : "#c60b0b"
+    : theme.inputText
+  };
   cursor: pointer;
   margin-right: 10px;
   transition: color 0.3s ease;

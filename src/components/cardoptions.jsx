@@ -56,7 +56,7 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
           <p>
             Are you sure you want to delete this <b>Task</b>?
           </p>
-          <div className='btns-delete-modal'>
+          <div className='btn-delete-modal'>
             <button onClick={() => setOpenDeleteModal(false)}>No</button>
             <button onClick={confirmDelete}>Delete</button>
           </div>
@@ -72,7 +72,7 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
             onChange={(e) => setEditValue(e.target.value)}
             autoFocus
           />
-          <div className='btns-edit-modal'>
+          <div className='btn-edit-modal'>
             <button onClick={() => setOpenEditModal(false)}>Cancel</button>
             <button onClick={confirmEdit}>
               Save

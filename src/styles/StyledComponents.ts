@@ -8,20 +8,6 @@ export const MainDiv = styled.div`
   align-items: center;
 `
 
-export const Button = styled.button`
-  padding: 10px;
-  background-color:rgb(31, 107, 178);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-
-  &:hover {
-    background-color:rgb(8, 85, 157);
-  }
-`;
-
 export const Card = styled.div`
   display: flex;
   flex-direction: row;
@@ -35,6 +21,12 @@ export const Card = styled.div`
   max-width: 100%;
   background-color: ${({ theme }) => theme.card};
   color: ${({ theme }) => theme.text};
+
+  p {
+    max-width: 500px;
+    overflow-wrap: break-word;
+    text-align: left;
+  }
 `;
 
 export const Form = styled.form`
@@ -68,13 +60,14 @@ export const FormInputDiv = styled.div`
   gap: 4px;
 `;
 
+
 interface InputProps {
   error?: boolean;
 }
 
 export const InputFeedback = styled.div<InputProps>`
   font-size: 0.85rem;
-  color: ${({theme, error}) => error ? "#c60b0b" :  (theme.mode === "dark" ? "#CED4DA" : "#998c8b")};
+  color: ${({theme, error}) => error ? "#c60b0b" :  theme.inputText};
   text-align: left;
   margin-left: 2px;
 `;
@@ -87,7 +80,7 @@ export const FormBtnsDiv = styled.div`
 
   .add-btn {
     padding: 15px;
-    background-color:rgb(31, 107, 178);
+    background-color: #1665afff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -95,7 +88,7 @@ export const FormBtnsDiv = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color:rgb(8, 85, 157);
+      background-color: #08559d;
     }
   }
 
@@ -109,7 +102,7 @@ export const FormBtnsDiv = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color:#a20a0a;
+      background-color: #a20a0a;
     }
   }
 `
@@ -141,14 +134,14 @@ export const EditModal = styled.div`
     color: ${({theme}) => theme.inputText};
   }
 
-  .btns-edit-modal {
+  .btn-edit-modal {
     display: flex;
     margin-left: auto;
     margin-top: 12px;
     gap: 10px;
   }
 
-  .btns-edit-modal :nth-child(2) {
+  .btn-edit-modal :nth-child(2) {
     background-color: green;
     color: white;
   }
@@ -178,7 +171,7 @@ export const DeleteModal = styled.div`
     margin-top: 15px;
   }
 
-  .btns-delete-modal {
+  .btn-delete-modal {
     display: flex;
     flex-direction: row;
     margin-left: auto;
@@ -186,7 +179,7 @@ export const DeleteModal = styled.div`
     gap: 10px;
   }
 
-  .btns-delete-modal :nth-child(2) {
+  .btn-delete-modal :nth-child(2) {
     background-color: red;
     color: white;
   }
@@ -218,7 +211,7 @@ export const StyledFooter = styled.div`
   gap: 20px;
 
   h2 {
-    color: #fff;
+    color: #ffffff;
   }
 
   .icon-footer-div {

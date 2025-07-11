@@ -20,7 +20,7 @@ const TodoCard = ({
           onClick={onToggleImportant}
         />
       </Tooltip>
-      <p style={{maxWidth: "500px", overflowWrap: "break-word", textAlign: "left"}}>{text}</p>
+      <p>{text}</p>
       <CardOptions
         currentText={text}
         onDelete={onDelete}

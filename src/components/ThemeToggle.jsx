@@ -8,10 +8,22 @@ const ThemeToggle = ({ currentTheme, toggleTheme }) => {
   return (
     <StyledThemeToggle>
       <StyledLightModeIcon />
-      <Switch
+      <Switch 
         checked={isDark}
         onChange={toggleTheme}
-        color="default"
+        sx={{
+          '& .MuiSwitch-thumb': {
+            backgroundColor: isDark ? '#CED4DA' : '#DEE2E6', 
+          },
+          '& .MuiSwitch-track': {
+            backgroundColor: '#ADB5BD', 
+            opacity: 1,
+          },
+          '& .Mui-checked + .MuiSwitch-track': {
+            backgroundColor: '#495057',
+            opacity: 1,
+          },
+        }}
       />
       <StyledDarkModeIcon />
     </StyledThemeToggle>

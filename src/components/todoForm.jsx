@@ -70,7 +70,7 @@ const TodoForm = ({ setTodos }) => {
         <p>
           Are you sure you want to delete <b>All Tasks</b>?
         </p>
-        <div className='btns-delete-modal'>
+        <div className='btn-delete-modal'>
           <button onClick={() => setOpenDeleteModal(false)}>No</button>
           <button onClick={() => {
               setTodos([]); 

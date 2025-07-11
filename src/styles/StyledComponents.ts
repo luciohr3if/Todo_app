@@ -9,7 +9,7 @@ export const MainDiv = styled.div`
 `
 
 export const Button = styled.button`
-  padding: 10px 15px;
+  padding: 10px;
   background-color:rgb(31, 107, 178);
   color: white;
   border: none;
@@ -40,14 +40,10 @@ export const Card = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
   margin-bottom: 20px;
-
-  .btn-test {
-    height: 60px;
-  }
+  justify-content: center;
+  align-items: flex-start;
 `;
 
 export const FormInput = styled.input`
@@ -56,7 +52,6 @@ export const FormInput = styled.input`
   width: 300px;
   border: 2px solid #ccc;
   border-radius: 5px;
-  margin-right: 10px;
   background-color: ${({ theme }) => theme.inputBackground};
   color: ${({theme}) => theme.text};
 
@@ -64,6 +59,60 @@ export const FormInput = styled.input`
     color: ${({ theme }) => theme.inputText};
   }
 `;
+
+export const FormInputDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 4px;
+`;
+
+interface InputProps {
+  error?: boolean;
+}
+
+export const InputFeedback = styled.div<InputProps>`
+  font-size: 0.85rem;
+  color: ${({theme, error}) => error ? "#c60b0b" :  (theme.mode === "dark" ? "#CED4DA" : "#998c8b")};
+  text-align: left;
+  margin-left: 2px;
+`;
+
+export const FormBtnsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+
+  .add-btn {
+    padding: 15px;
+    background-color:rgb(31, 107, 178);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color:rgb(8, 85, 157);
+    }
+  }
+
+  .delete-btn {
+    padding: 15px;
+    background-color: #c60b0b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color:#a20a0a;
+    }
+  }
+`
 
 export const EditInput = styled.input`
   padding: 7.5px;
@@ -193,13 +242,3 @@ export const StyledCardOptionsDiv = styled.div`
     border: none;
   }
 `
-interface InputProps {
-  error?: boolean;
-}
-
-export const InputFeedback = styled.div<InputProps>`
-  font-size: 0.85rem;
-  color: ${({ error }) => (error ? 'red' : '#888')};
-  margin-top: 4px;
-  text-align: left;
-`;

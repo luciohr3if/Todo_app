@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Button, DeleteModal, Form, FormInput, InputFeedback } from "../styles/StyledComponents";
+import { DeleteModal, Form, FormBtnsDiv, FormInput, FormInputDiv, InputFeedback } from "../styles/StyledComponents";
 import Modal from "@mui/material/Modal";
 
 const TodoForm = ({ setTodos }) => {
@@ -39,7 +39,7 @@ const TodoForm = ({ setTodos }) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', justifyContent: "center"}}>
+        <FormInputDiv>
           <FormInput
             type="text"
             ref={inputRef}
@@ -51,19 +51,18 @@ const TodoForm = ({ setTodos }) => {
           <InputFeedback error={error}>
             {error || `${input.length}/500 characters`}
           </InputFeedback>
-        </div>
+        </FormInputDiv>
 
-        <div style={{display: 'flex', gap: '8px', justifyContent: "center" }}>
-          <Button className="btn-test" type="submit">ADD TASK</Button>
-          <Button
-            className="btn-test"
+        <FormBtnsDiv>
+          <button className="add-btn" type="submit">ADD TASK</button>
+          <button
+            className="delete-btn"
             type="button"
-            style={{ backgroundColor: "red" }}
             onClick={() => setOpenDeleteModal(true)}
           >
             DELETE ALL TASKS
-          </Button>
-        </div>
+          </button>
+        </FormBtnsDiv>
       </Form>
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
       <DeleteModal>

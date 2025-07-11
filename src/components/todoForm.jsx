@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Button, DeleteModal, Form, FormInput } from "../styles/StyledComponents";
+import { Button, DeleteModal, Form, FormInput, InputFeedback } from "../styles/StyledComponents";
 import Modal from "@mui/material/Modal";
 
 const TodoForm = ({ setTodos }) => {
@@ -39,20 +39,32 @@ const TodoForm = ({ setTodos }) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <FormInput
-          type="text"
-          ref={inputRef}
-          placeholder="Type Anything..."
-          value={input}
-          onChange={handleChange}
-          autoFocus
-        />
-        <Button type="submit">ADD TASK</Button>
-        <Button style={{backgroundColor: "red"}} onClick={() => setOpenDeleteModal(true)}>DELETE ALL TASKS</Button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', justifyContent: "center"}}>
+          <FormInput
+            type="text"
+            ref={inputRef}
+            placeholder="Type Anything..."
+            value={input}
+            onChange={handleChange}
+            autoFocus
+          />
+          <InputFeedback error={error}>
+            {error || `${input.length}/500 characters`}
+          </InputFeedback>
+        </div>
+
+        <div style={{display: 'flex', gap: '8px', justifyContent: "center" }}>
+          <Button className="btn-test" type="submit">ADD TASK</Button>
+          <Button
+            className="btn-test"
+            type="button"
+            style={{ backgroundColor: "red" }}
+            onClick={() => setOpenDeleteModal(true)}
+          >
+            DELETE ALL TASKS
+          </Button>
+        </div>
       </Form>
-      <div style={{ color: "red", minHeight: "1em" }}>
-          {error || `${input.length}/500`}
-      </div>
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
       <DeleteModal>
         <h2>DELETE ALL TASKS</h2>

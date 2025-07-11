@@ -31,6 +31,8 @@ export const Card = styled.div`
   gap: 15px;
   border-radius: 7.5px;
   margin: 10px 0;
+  width: auto;
+  max-width: 100%;
   background-color: ${({ theme }) => theme.card};
   color: ${({ theme }) => theme.text};
 `;
@@ -39,8 +41,13 @@ export const Form = styled.form`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+
+  .btn-test {
+    height: 60px;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -186,3 +193,13 @@ export const StyledCardOptionsDiv = styled.div`
     border: none;
   }
 `
+interface InputProps {
+  error?: boolean;
+}
+
+export const InputFeedback = styled.div<InputProps>`
+  font-size: 0.85rem;
+  color: ${({ error }) => (error ? 'red' : '#888')};
+  margin-top: 4px;
+  text-align: left;
+`;

@@ -5,9 +5,9 @@ const Footer = () => {
         <StyledFooter>
             <h2>MADE WITH</h2>
             <div className="icon-footer-div">
-                <img width={"35px"} height={"35px"} src=".\public\reactIcon.svg" alt="React Icon" />
-                <img width={"35px"} height={"35px"} src=".\public\nodeIcon.svg" alt="Node Icon" />
-                <img width={"35px"} height={"35px"} src=".\public\muiIcon.svg" alt="MUI Icon" />
+                <img src=".\public\reactIcon.svg" alt="React Icon" />
+                <img src=".\public\nodeIcon.svg" alt="Node Icon" />
+                <img src=".\public\muiIcon.svg" alt="MUI Icon" />
             </div>
         </StyledFooter>
     )

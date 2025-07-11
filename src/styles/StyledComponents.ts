@@ -221,6 +221,11 @@ export const StyledFooter = styled.div`
     justify-content: center;
     gap: 7.5px;
   }
+
+  .icon-footer-div img {
+    width: 35px;
+    height: 35px;  
+  }
 `
 
 export const StyledCardOptionsDiv = styled.div`

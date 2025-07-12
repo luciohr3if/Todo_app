@@ -1,3 +1,4 @@
+import Switch from '@mui/material/Switch';
 import styled from 'styled-components'
 
 export const MainDiv = styled.div`
@@ -227,6 +228,20 @@ export const StyledFooter = styled.div`
     height: 35px;  
   }
 `
+
+export const StyledSwitch = styled(Switch)(({ theme }) => ({
+  '& .MuiSwitch-thumb': {
+    backgroundColor: theme.mode === 'dark' ? '#CED4DA' : '#DEE2E6',
+  },
+  '& .MuiSwitch-track': {
+    backgroundColor: '#ADB5BD',
+    opacity: 1,
+  },
+  '& .Mui-checked + .MuiSwitch-track': {
+    backgroundColor: '#495057',
+    opacity: 1,
+  },
+}));
 
 export const StyledCardOptionsDiv = styled.div`
   display: flex;

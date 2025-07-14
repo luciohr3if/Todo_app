@@ -1,3 +1,4 @@
+import Switch from '@mui/material/Switch';
 import styled from 'styled-components'
 
 export const MainDiv = styled.div`
@@ -83,6 +84,7 @@ export const FormBtnsDiv = styled.div`
     background-color: #1665afff;
     color: white;
     border: none;
+    outline-style: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
@@ -98,6 +100,7 @@ export const FormBtnsDiv = styled.div`
     color: white;
     border: none;
     border-radius: 5px;
+    outline-style: none;
     font-weight: bold;
     cursor: pointer;
 
@@ -177,6 +180,8 @@ export const DeleteModal = styled.div`
     margin-left: auto;
     margin-top: 12px;
     gap: 10px;
+    outline-style: none;
+    border: none;
   }
 
   .btn-delete-modal :nth-child(2) {
@@ -238,5 +243,20 @@ export const StyledCardOptionsDiv = styled.div`
     background-color: transparent;
     padding: 5px;
     border: none;
+    outline-style: none;
   }
 `
+
+export const StyledSwitch = styled(Switch)(({ theme }) => ({
+  '& .MuiSwitch-thumb': {
+    backgroundColor: theme.mode === 'dark' ? '#CED4DA' : '#DEE2E6',
+  },
+  '& .MuiSwitch-track': {
+    backgroundColor: '#ADB5BD',
+    opacity: 1,
+  },
+  '& .Mui-checked + .MuiSwitch-track': {
+    backgroundColor: theme.mode === 'dark' ? '#495057' : '#ADB5BD',
+    opacity: 1,
+  },
+}));

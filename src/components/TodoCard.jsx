@@ -13,7 +13,7 @@ const TodoCard = ({
   onToggleImportant,
 }) => {
   return (
-    <Card className='card-div' important={important}>
+    <Card className='card-div' $important={important}>
       <Tooltip title={important ? "Unmark as important" : "Mark as important"}>
         <StyledPushPinIcon
           important={important}

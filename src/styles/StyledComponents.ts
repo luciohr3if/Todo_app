@@ -27,6 +27,7 @@ export const Card = styled.div`
     max-width: 500px;
     overflow-wrap: break-word;
     text-align: left;
+    font-size: 17.25px;
   }
 `;
 
@@ -82,7 +83,7 @@ export const FormBtnsDiv = styled.div`
   .add-btn {
     padding: 15px;
     background-color: #1665afff;
-    color: white;
+    color: #ffffff;
     border: none;
     outline-style: none;
     border-radius: 5px;
@@ -96,8 +97,8 @@ export const FormBtnsDiv = styled.div`
 
   .delete-btn {
     padding: 15px;
-    background-color: #c60b0b;
-    color: white;
+    background-color: #c61f2aff;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     outline-style: none;
@@ -145,8 +146,19 @@ export const EditModal = styled.div`
   }
 
   .btn-edit-modal :nth-child(2) {
-    background-color: green;
-    color: white;
+    background-color: #3f751bff;
+    color: #ffffff;
+    outline-style: none;
+    border: none;
+    font-size: 17px;
+  }
+
+  .btn-edit-modal :nth-child(1) {
+    background-color: #212529;
+    color: #ffffff;
+    outline-style: none;
+    border: none;
+    font-size: 17px;
   }
 `
 
@@ -172,6 +184,7 @@ export const DeleteModal = styled.div`
     color: ${({theme}) => theme.text};
     margin: 0;
     margin-top: 15px;
+    font-size: 18px;
   }
 
   .btn-delete-modal {
@@ -185,17 +198,31 @@ export const DeleteModal = styled.div`
   }
 
   .btn-delete-modal :nth-child(2) {
-    background-color: red;
-    color: white;
+    background-color: #c61f2aff;
+    color: #ffffff;
+    border: none;
+    outline-style: none;
+    font-size: 17px;
+  }
+
+  .btn-delete-modal :nth-child(1) {
+    background-color: #212529;
+    color: #ffffff;
+    border: none;
+    outline-style: none;
+    font-size: 17px;
   }
 `
 
 export const StyledThemeToggle = styled.div`
   display: flex;
   flex-direction: row;
+  align-self: flex-end;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  margin-top: 25px;
+  margin-right: 25px;
 `
 
 export const List = styled.ul`

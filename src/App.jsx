@@ -21,6 +21,20 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const [todos, setTodos] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const saved = loadFromStorage();
+    setTodos(saved);
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) return;
+    saveToStorage(todos);
+  }, [todos, loaded]);
+
 
   useEffect(() => {
     const saved = localStorage.getItem("app_theme");
@@ -33,22 +47,12 @@ function App() {
     localStorage.setItem("app_theme", newTheme);
   };
 
-  const [todos, setTodos] = useState([])
-
-  useEffect(() => {
-    setTodos(loadFromStorage())
-  }, [])
-
-  useEffect(() => {
-    saveToStorage(todos)
-  }, [todos])
-
   return (
     <MainDiv>
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <GlobalStyle />
-          <h1>MY TO-DO LIST</h1>
           <ThemeToggle toggleTheme={toggleTheme} currentTheme={theme} />
+          <h1>MY TO-DO LIST</h1>
           <TodoForm setTodos={setTodos} />
           <TodoList todos={todos} setTodos={setTodos} />
           <Footer />

@@ -28,9 +28,10 @@ const TodoForm = ({ setTodos }) => {
     const newTodo = {
       id: crypto.randomUUID(),
       text: input.trim(),
+      important: false,
     };
 
-    setTodos((prevTodos) => [newTodo, ...prevTodos]);
+    setTodos((prev) => [...prev, newTodo]);
     setInput("");
     inputRef.current?.focus();
     if (error) setError("");

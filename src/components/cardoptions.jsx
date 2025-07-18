@@ -7,7 +7,7 @@ import {
 } from '../Icons/Icons';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import { DeleteModal, EditInput, EditModal, StyledCardOptionsDiv } from '../styles/StyledComponents';
+import { EditInput, StyledCardOptionsDiv, StyledModalDiv } from '../styles/StyledComponents';
 
 
 const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentText }) => {
@@ -51,19 +51,19 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
         </button>
       </Tooltip>
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
-        <DeleteModal>
+        <StyledModalDiv>
           <h2>DELETE TASK</h2>
           <p>
             Are you sure you want to delete this <b>Task</b>?
           </p>
-          <div className='btn-delete-modal'>
-            <button onClick={() => setOpenDeleteModal(false)}>No</button>
-            <button onClick={confirmDelete}>Delete</button>
+          <div className='btn-modal-div'>
+            <button className="deny-btn" onClick={() => setOpenDeleteModal(false)}>No</button>
+            <button className="delete-btn" onClick={confirmDelete}>Delete</button>
           </div>
-        </DeleteModal>
+        </StyledModalDiv>
       </Modal>
       <Modal open={openEditModal} onClose={() => setOpenEditModal(false)}>
-        <EditModal>
+        <StyledModalDiv>
           <h2>EDIT TASK</h2>
           <EditInput
             type="text"
@@ -72,13 +72,13 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
             onChange={(e) => setEditValue(e.target.value)}
             autoFocus
           />
-          <div className='btn-edit-modal'>
-            <button onClick={() => setOpenEditModal(false)}>Cancel</button>
-            <button onClick={confirmEdit}>
+          <div className='btn-modal-div'>
+            <button className="deny-btn" onClick={() => setOpenEditModal(false)}>Cancel</button>
+            <button className="save-btn" onClick={confirmEdit}>
               Save
             </button>
           </div>
-        </EditModal>
+        </StyledModalDiv>
       </Modal>
     </StyledCardOptionsDiv>
   );

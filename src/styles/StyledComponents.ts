@@ -151,7 +151,7 @@ export const Card = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  gap: 15px;
+  gap: 10px;
   border-radius: 7.5px;
   margin: 10px 0;
   width: 100%;
@@ -185,10 +185,17 @@ export const StyledCardOptionsDiv = styled.div`
     padding: 5px;
     border: none;
     outline-style: none;
+    cursor: pointer;
   }
 `
-
-export const EditModal = styled.div`
+const BaseButton = styled.button`
+  color: #ffffff;
+  outline-style: none;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+`
+export const StyledModalDiv = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -198,55 +205,12 @@ export const EditModal = styled.div`
   transform: translate(-50%, -50%);
   background-color: ${({theme}) => theme.modalBackground};
   border-radius: 12.5px;
-  padding: 10px 15px;
-  width: 400px;
-
-  .input-modal {
-    width: auto;
-    background-color: ${({theme}) => theme.inputBackground};
-    border: 2px solid #ccc;
-    color: ${({theme}) => theme.inputText};
-  }
-
-  .btn-edit-modal {
-    display: flex;
-    margin-left: auto;
-    margin-top: 12px;
-    gap: 10px;
-  }
-
-  .btn-edit-modal :nth-child(2) {
-    background-color: #3f751bff;
-    color: #ffffff;
-    outline-style: none;
-    border: none;
-    font-size: 17px;
-  }
-
-  .btn-edit-modal :nth-child(1) {
-    background-color: #212529;
-    color: #ffffff;
-    outline-style: none;
-    border: none;
-    font-size: 17px;
-  }
-`
-
-export const DeleteModal = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  text-align: left;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: ${({theme}) => theme.modalBackground};
-  border-radius: 12.5px;
-  padding: 20px 15px 10px 15px;
+  padding: 15px;
   width: auto;
 
   h2 {
     margin: 0;
+    text-align: left;
   }
 
   p {
@@ -257,30 +221,38 @@ export const DeleteModal = styled.div`
     font-size: 18px;
   }
 
-  .btn-delete-modal {
+  .btn-modal-div {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
     margin-left: auto;
     margin-top: 12px;
+    width: 350px;
     gap: 10px;
-    outline-style: none;
     border: none;
   }
 
-  .btn-delete-modal :nth-child(2) {
+  .save-btn {
+    ${BaseButton};
+    background-color: #3f751bff;
+  }
+
+  .delete-btn {
+    ${BaseButton};
     background-color: #c61f2aff;
-    color: #ffffff;
-    border: none;
-    outline-style: none;
-    font-size: 17px;
   }
 
-  .btn-delete-modal :nth-child(1) {
+  .deny-btn {
+    ${BaseButton};
     background-color: #212529;
-    color: #ffffff;
-    border: none;
-    outline-style: none;
-    font-size: 17px;
+  }
+
+  .input-modal {
+    width: auto;
+    background-color: ${({theme}) => theme.inputBackground};
+    margin-top: 15px;
+    border: 2px solid #ccc;
+    color: ${({theme}) => theme.inputText};
   }
 `
 

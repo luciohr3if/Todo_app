@@ -19,8 +19,8 @@ export const StyledPushPinIcon = styled(PushPinIcon)<PinIconProps>`
       : "#c60b0b"
     : theme.inputText
   };
+  margin-right: auto;
   cursor: pointer;
-  margin-right: 10px;
   transition: color 0.3s ease;
 `;
 

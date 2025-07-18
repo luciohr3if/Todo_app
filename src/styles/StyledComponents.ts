@@ -1,5 +1,5 @@
 import Switch from '@mui/material/Switch';
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const MainDiv = styled.div`
   display: flex;
@@ -7,29 +7,52 @@ export const MainDiv = styled.div`
   min-height: 100vh;
   text-align: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 `
 
-export const Card = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 15px;
-  gap: 15px;
-  border-radius: 7.5px;
-  margin: 10px 0;
-  width: auto;
-  max-width: 100%;
-  background-color: ${({ theme }) => theme.card};
-  color: ${({ theme }) => theme.text};
+export const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
+    margin: 0;
+    font-family: sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-  p {
-    max-width: 500px;
-    overflow-wrap: break-word;
-    text-align: left;
-    font-size: 17.25px;
+  #root {
+    width: 100%;
   }
 `;
+
+export const StyledThemeToggle = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-right: 25px;
+`
+
+export const StyledSwitch = styled(Switch)(({ theme }) => ({
+  '& .MuiSwitch-thumb': {
+    backgroundColor: theme.mode === 'dark' ? '#CED4DA' : '#DEE2E6',
+  },
+  '& .MuiSwitch-track': {
+    backgroundColor: '#ADB5BD',
+    opacity: 1,
+  },
+  '& .Mui-checked + .MuiSwitch-track': {
+    backgroundColor: theme.mode === 'dark' ? '#495057' : '#ADB5BD',
+    opacity: 1,
+  },
+}));
 
 export const Form = styled.form`
   display: flex;
@@ -111,12 +134,59 @@ export const FormBtnsDiv = styled.div`
   }
 `
 
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+`;
+
+export const Card = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  border-radius: 7.5px;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 900px;
+  background-color: ${({ theme }) => theme.card};
+  color: ${({ theme }) => theme.text};
+
+  p {
+    max-width: 500px;
+    overflow-wrap: break-word;
+    text-align: left;
+    font-size: 17.25px;
+  }
+`;
+
 export const EditInput = styled.input`
   padding: 7.5px;
   font-size: 18px;
   border-radius: 5px;
   border: none;
 `;
+
+export const StyledCardOptionsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-left: auto;
+
+  .btn-option {
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    outline-style: none;
+  }
+`
 
 export const EditModal = styled.div`
   display: flex;
@@ -214,29 +284,11 @@ export const DeleteModal = styled.div`
   }
 `
 
-export const StyledThemeToggle = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-self: flex-end;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  margin-top: 25px;
-  margin-right: 25px;
-`
-
-export const List = styled.ul`
-  list-style: none;
-  padding: 0;
-  max-width: 900px;
-  margin: 0 auto;
-`;
-
 export const StyledFooter = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: auto;
-  width: 1440px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   background-color: ${({theme}) => theme.footerBackground};
@@ -259,31 +311,3 @@ export const StyledFooter = styled.div`
     height: 35px;  
   }
 `
-
-export const StyledCardOptionsDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  margin-left: auto;
-
-  .btn-option {
-    background-color: transparent;
-    padding: 5px;
-    border: none;
-    outline-style: none;
-  }
-`
-
-export const StyledSwitch = styled(Switch)(({ theme }) => ({
-  '& .MuiSwitch-thumb': {
-    backgroundColor: theme.mode === 'dark' ? '#CED4DA' : '#DEE2E6',
-  },
-  '& .MuiSwitch-track': {
-    backgroundColor: '#ADB5BD',
-    opacity: 1,
-  },
-  '& .Mui-checked + .MuiSwitch-track': {
-    backgroundColor: theme.mode === 'dark' ? '#495057' : '#ADB5BD',
-    opacity: 1,
-  },
-}));

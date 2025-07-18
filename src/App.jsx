@@ -3,21 +3,11 @@ import { loadFromStorage, saveToStorage } from "./utils/storage";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import ThemeToggle from "./components/ThemeToggle";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
 import Footer from "./components/Footer";
-import { MainDiv } from "./styles/StyledComponents";
+import { GlobalStyle, MainDiv } from "./styles/StyledComponents";
 
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.text};
-    margin: 0;
-    font-family: sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-`;
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -49,14 +39,14 @@ function App() {
 
   return (
     <MainDiv>
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyle />
-          <ThemeToggle toggleTheme={toggleTheme} currentTheme={theme} />
-          <h1>MY TO-DO LIST</h1>
-          <TodoForm setTodos={setTodos} />
-          <TodoList todos={todos} setTodos={setTodos} />
-          <Footer />
-        </ThemeProvider>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyle />
+        <ThemeToggle toggleTheme={toggleTheme} currentTheme={theme} />        
+        <h1>MY TO-DO LIST</h1>
+        <TodoForm setTodos={setTodos} />
+        <TodoList todos={todos} setTodos={setTodos} />
+        <Footer />
+      </ThemeProvider>
     </MainDiv>
   )
 }

@@ -1,16 +1,6 @@
 import Switch from '@mui/material/Switch';
 import styled, { createGlobalStyle } from 'styled-components'
 
-export const MainDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`
-
 export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.background};
@@ -29,15 +19,25 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const MainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`
+
 export const StyledThemeToggle = styled.div`
   display: flex;
   flex-direction: row;
   align-self: flex-end;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  margin-top: 25px;
-  margin-right: 25px;
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
+  margin-top: 1.563rem;
+  margin-right: 1.563rem;
 `
 
 export const StyledSwitch = styled(Switch)(({ theme }) => ({
@@ -57,18 +57,18 @@ export const StyledSwitch = styled(Switch)(({ theme }) => ({
 export const Form = styled.form`
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
   justify-content: center;
   align-items: flex-start;
 `;
 
 export const FormInput = styled.input`
-  padding: 10px;
-  font-size: 16px;
-  width: 300px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  padding: 0.625rem;
+  font-size: 1rem;
+  width: 18.75rem;
+  border: 0.125rem solid #ccc;
+  border-radius: 0.3125rem;
   background-color: ${({ theme }) => theme.inputBackground};
   color: ${({theme}) => theme.text};
 
@@ -82,7 +82,7 @@ export const FormInputDiv = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  gap: 4px;
+  gap: 0.25rem;
 `;
 
 
@@ -94,22 +94,22 @@ export const InputFeedback = styled.div<InputProps>`
   font-size: 0.85rem;
   color: ${({theme, error}) => error ? "#c60b0b" :  theme.inputText};
   text-align: left;
-  margin-left: 2px;
+  margin-left: 0.125rem;
 `;
 
 export const FormBtnsDiv = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 0.5rem;
   justify-content: center;
 
   .add-btn {
-    padding: 15px;
+    padding: 0.9375rem;
     background-color: #1665afff;
     color: #ffffff;
     border: none;
     outline-style: none;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     font-weight: bold;
     cursor: pointer;
 
@@ -119,11 +119,11 @@ export const FormBtnsDiv = styled.div`
   }
 
   .delete-btn {
-    padding: 15px;
+    padding: 0.9375rem;
     background-color: #c61f2aff;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     outline-style: none;
     font-weight: bold;
     cursor: pointer;
@@ -139,10 +139,10 @@ export const List = styled.ul`
   flex-direction: column;
   align-items: center;
   list-style: none;
-  padding: 10px;
-  max-width: 900px;
+  padding: 0.625rem;
+  max-width: 56.25rem;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 `;
 
 export const Card = styled.div`
@@ -150,39 +150,39 @@ export const Card = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  gap: 10px;
-  border-radius: 7.5px;
-  margin: 10px 0;
+  padding: 0.625rem 0.9375rem;
+  gap: 0.625rem;
+  border-radius: 0.46875rem;
+  margin: 0.625rem 0;
   width: 100%;
-  max-width: 900px;
+  max-width: 56.25rem;
   background-color: ${({ theme }) => theme.card};
   color: ${({ theme }) => theme.text};
 
   p {
-    max-width: 500px;
+    max-width: 31.25rem;
     overflow-wrap: break-word;
     text-align: left;
-    font-size: 17.25px;
+    font-size: 1.078rem;
   }
 `;
 
 export const EditInput = styled.input`
-  padding: 7.5px;
-  font-size: 18px;
-  border-radius: 5px;
+  padding: 0.468rem;
+  font-size: 1.125rem;
+  border-radius: 0.3125rem;
   border: none;
 `;
 
 export const StyledCardOptionsDiv = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 0.3125rem;
   margin-left: auto;
 
   .btn-option {
     background-color: transparent;
-    padding: 5px;
+    padding: 0.3125rem;
     border: none;
     outline-style: none;
     cursor: pointer;
@@ -190,9 +190,9 @@ export const StyledCardOptionsDiv = styled.div`
 `
 const BaseButton = styled.button`
   color: #ffffff;
-  outline-style: none;
   border: none;
-  font-size: 17px;
+  outline-style: none;
+  font-size: 1.0625rem;
   cursor: pointer;
 `
 export const StyledModalDiv = styled.div`
@@ -204,9 +204,9 @@ export const StyledModalDiv = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${({theme}) => theme.modalBackground};
-  border-radius: 12.5px;
-  padding: 15px;
-  width: auto;
+  border-radius: 0.78125rem;
+  padding: 0.9375rem;
+  width: 25rem;
 
   h2 {
     margin: 0;
@@ -217,8 +217,8 @@ export const StyledModalDiv = styled.div`
     text-align: left;
     color: ${({theme}) => theme.text};
     margin: 0;
-    margin-top: 15px;
-    font-size: 18px;
+    margin-top: 0.9375rem;
+    font-size: 1.125rem;
   }
 
   .btn-modal-div {
@@ -226,9 +226,9 @@ export const StyledModalDiv = styled.div`
     flex-direction: row;
     justify-content: flex-end;
     margin-left: auto;
-    margin-top: 12px;
-    width: 350px;
-    gap: 10px;
+    margin-top: 0.75rem;
+    width: 100%;
+    gap: 0.625rem;
     border: none;
   }
 
@@ -250,8 +250,8 @@ export const StyledModalDiv = styled.div`
   .input-modal {
     width: auto;
     background-color: ${({theme}) => theme.inputBackground};
-    margin-top: 15px;
-    border: 2px solid #ccc;
+    margin-top: 0.9375rem;
+    border: 0.125rem solid #ccc;
     color: ${({theme}) => theme.inputText};
   }
 `
@@ -264,7 +264,7 @@ export const StyledFooter = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({theme}) => theme.footerBackground};
-  gap: 20px;
+  gap: 1.25rem;
 
   h2 {
     color: #ffffff;
@@ -275,11 +275,11 @@ export const StyledFooter = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 7.5px;
+    gap: 0.46875rem;
   }
 
   .icon-footer-div img {
-    width: 35px;
-    height: 35px;  
+    width: 2.1875rem;
+    height: 2.1875rem;  
   }
 `

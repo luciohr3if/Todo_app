@@ -61,6 +61,11 @@ export const Form = styled.form`
   margin-bottom: 1.25rem;
   justify-content: center;
   align-items: flex-start;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -113,6 +118,7 @@ export const FormBtnsDiv = styled.div`
     border-radius: 0.3125rem;
     font-weight: bold;
     cursor: pointer;
+    font-size: 1em;
 
     &:hover {
       background-color: #08559d;
@@ -128,6 +134,7 @@ export const FormBtnsDiv = styled.div`
     outline-style: none;
     font-weight: bold;
     cursor: pointer;
+    font-size: 1em;
 
     &:hover {
       background-color: #a20a0a;
@@ -141,12 +148,25 @@ export const List = styled.ul`
   align-items: center;
   justify-content: center;
   list-style: none;
-  padding: 0.625rem;
-  max-width: 56.25rem;
+  gap: 0.938rem;
   margin: 0 auto;
   margin-bottom: 1.25rem;
+  padding: 0;
+  width: 100%;
+  max-width: 56.25rem;
+
+  .list-item {
+    width: auto;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
+export const ListItem = styled.li`
+  width: 100%;
+`
 export const Card = styled.div`
   display: flex;
   flex-direction: row;
@@ -155,8 +175,7 @@ export const Card = styled.div`
   padding: 0.625rem 0.9375rem;
   gap: 0.625rem;
   border-radius: 0.46875rem;
-  margin: 0.625rem 0;
-  width: 100%;
+  margin: 0;
   max-width: 56.25rem;
   background-color: ${({ theme }) => theme.card};
   color: ${({ theme }) => theme.text};
@@ -167,6 +186,10 @@ export const Card = styled.div`
     text-align: left;
     font-size: 1.078rem;
   }
+
+    @media (max-width: 600px) {
+      max-width: 90%;
+    }
 `;
 
 export const EditInput = styled.input`
@@ -191,15 +214,48 @@ export const StyledCardOptionsDiv = styled.div`
     outline-style: none;
     cursor: pointer;
   }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 `
 
 const BaseButton = styled.button`
   color: #ffffff;
-  font-size: 1.0625rem;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
   border: none;
+  font-size: 1em;
   outline: none;
+  font-weight: 500;
   cursor: pointer;
 `
+
+export const DeleteButton = styled(BaseButton)`
+  background-color: #c61f2aff;
+
+  &:hover {
+    background-color: #a20a0a;
+  }
+`
+
+export const DenyButton = styled(BaseButton)`
+  background-color: #212529;
+
+  &:hover {
+    background-color: #0f1012ff;
+  }
+`
+
+export const SaveButton = styled(BaseButton)`
+  background-color: #3f751bff;
+
+  &:hover {
+    background-color: #335b18ff;
+  }
+`
+
 
 export const StyledModalDiv = styled.div`
   display: flex;
@@ -238,33 +294,6 @@ export const StyledModalDiv = styled.div`
     border: none;
   }
 
-  .save-btn {
-    ${BaseButton};
-    background-color: #3f751bff;
-
-    &:hover {
-      background-color: #335b18ff;
-    }
-  }
-
-  .delete-btn {
-    ${BaseButton};
-    background-color: #c61f2aff;
-
-    &:hover {
-      background-color: #a20a0a;
-    }
-  }
-
-  .deny-btn {
-    ${BaseButton};
-    background-color: #212529;
-
-    &:hover {
-      background-color: #0f1012ff;
-    }
-  }
-
   .input-modal {
     width: auto;
     background-color: ${({theme}) => theme.inputBackground};
@@ -284,8 +313,14 @@ export const StyledFooter = styled.div`
   background-color: ${({theme}) => theme.footerBackground};
   gap: 1.25rem;
 
+  @media (max-width: 600px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
   h2 {
     color: #ffffff;
+    margin: 0;
   }
 
   .icon-footer-div {
@@ -294,6 +329,10 @@ export const StyledFooter = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0.46875rem;
+
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
   }
 
   .icon-footer-div img {

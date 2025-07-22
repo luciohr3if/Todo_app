@@ -46,7 +46,7 @@ function TodoList({ todos, setTodos }) {
   return (
     <List>
       {sortedTodos.map((todo, index) => (
-        <li key={todo.id}>
+        <li className="list-item" key={todo.id}>
           <TodoCard
             text={todo.text}
             onDelete={() => remove(todo.id)}

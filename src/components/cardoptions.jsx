@@ -7,7 +7,7 @@ import {
 } from '../Icons/Icons';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import { EditInput, StyledCardOptionsDiv, StyledModalDiv } from '../styles/StyledComponents';
+import { DeleteButton, DenyButton, EditInput, SaveButton, StyledCardOptionsDiv, StyledModalDiv } from '../styles/StyledComponents';
 
 
 const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentText }) => {
@@ -57,8 +57,8 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
             Are you sure you want to delete this <b>Task</b>?
           </p>
           <div className='btn-modal-div'>
-            <button className="deny-btn" onClick={() => setOpenDeleteModal(false)}>No</button>
-            <button className="delete-btn" onClick={confirmDelete}>Delete</button>
+            <DenyButton onClick={() => setOpenDeleteModal(false)}>No</DenyButton>
+            <DeleteButton onClick={confirmDelete}>Delete</DeleteButton>          
           </div>
         </StyledModalDiv>
       </Modal>
@@ -73,10 +73,8 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
             autoFocus
           />
           <div className='btn-modal-div'>
-            <button className="deny-btn" onClick={() => setOpenEditModal(false)}>Cancel</button>
-            <button className="save-btn" onClick={confirmEdit}>
-              Save
-            </button>
+            <DenyButton onClick={() => setOpenEditModal(false)}>Cancel</DenyButton>
+            <SaveButton onClick={confirmEdit}>Save</SaveButton>
           </div>
         </StyledModalDiv>
       </Modal>

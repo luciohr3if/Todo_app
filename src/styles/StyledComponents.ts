@@ -87,12 +87,12 @@ export const FormInputDiv = styled.div`
 
 
 interface InputProps {
-  error?: boolean;
+  $error?: boolean;
 }
 
 export const InputFeedback = styled.div<InputProps>`
   font-size: 0.85rem;
-  color: ${({theme, error}) => error ? "#c60b0b" :  theme.inputText};
+  color: ${({theme, $error}) => $error ? "#c60b0b" :  theme.inputText};
   text-align: left;
   margin-left: 0.125rem;
 `;
@@ -102,6 +102,7 @@ export const FormBtnsDiv = styled.div`
   flex-direction: row;
   gap: 0.5rem;
   justify-content: center;
+  align-items: center;
 
   .add-btn {
     padding: 0.9375rem;
@@ -138,6 +139,7 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   list-style: none;
   padding: 0.625rem;
   max-width: 56.25rem;
@@ -177,6 +179,8 @@ export const EditInput = styled.input`
 export const StyledCardOptionsDiv = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 0.3125rem;
   margin-left: auto;
 
@@ -188,13 +192,15 @@ export const StyledCardOptionsDiv = styled.div`
     cursor: pointer;
   }
 `
+
 const BaseButton = styled.button`
   color: #ffffff;
-  border: none;
-  outline-style: none;
   font-size: 1.0625rem;
+  border: none;
+  outline: none;
   cursor: pointer;
 `
+
 export const StyledModalDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -235,16 +241,28 @@ export const StyledModalDiv = styled.div`
   .save-btn {
     ${BaseButton};
     background-color: #3f751bff;
+
+    &:hover {
+      background-color: #335b18ff;
+    }
   }
 
   .delete-btn {
     ${BaseButton};
     background-color: #c61f2aff;
+
+    &:hover {
+      background-color: #a20a0a;
+    }
   }
 
   .deny-btn {
     ${BaseButton};
     background-color: #212529;
+
+    &:hover {
+      background-color: #0f1012ff;
+    }
   }
 
   .input-modal {

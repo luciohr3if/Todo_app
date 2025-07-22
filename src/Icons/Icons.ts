@@ -8,12 +8,12 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import PushPinIcon from '@mui/icons-material/PushPin';
 
 interface PinIconProps {
-  important?: boolean;
+  $important?: boolean;
 }
 
 export const StyledPushPinIcon = styled(PushPinIcon)<PinIconProps>`
-  color: ${({ theme, important }) => 
-    important
+  color: ${({ theme, $important }) => 
+    $important
     ? theme.mode === "dark"
       ? "#9d0208"
       : "#c60b0b"

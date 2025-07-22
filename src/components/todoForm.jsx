@@ -42,6 +42,7 @@ const TodoForm = ({ setTodos }) => {
       <Form onSubmit={handleSubmit}>
         <FormInputDiv>
           <FormInput
+            name="todo-app-input"
             type="text"
             ref={inputRef}
             placeholder="Type Anything..."
@@ -49,7 +50,7 @@ const TodoForm = ({ setTodos }) => {
             onChange={handleChange}
             autoFocus
           />
-          <InputFeedback error={error}>
+          <InputFeedback $error={error}>
             {error || `${input.length}/500 characters`}
           </InputFeedback>
         </FormInputDiv>

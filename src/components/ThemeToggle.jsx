@@ -8,6 +8,7 @@ const ThemeToggle = ({ currentTheme, toggleTheme }) => {
     <StyledThemeToggle>
       <StyledLightModeIcon />
        <StyledSwitch
+        name="theme-switch"
         checked={isDark}
         onChange={toggleTheme}
         color="default"

@@ -202,6 +202,10 @@ export const EditInput = styled.input`
   margin-top: 0.9375rem;
   border: 0.125rem solid #ccc;
   color: ${({theme}) => theme.inputText};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.inputPlaceholder};
+  }
 `;
 
 export const StyledCardOptionsDiv = styled.div`
@@ -298,10 +302,12 @@ export const StyledFooter = styled.div`
   justify-content: center;
   background-color: ${({theme}) => theme.footerBackground};
   gap: 1.25rem;
+  height: 60px;
 
   @media (max-width: 600px) {
     flex-direction: column;
     text-align: center;
+    gap: 0.2rem;
   }
 
   h2 {
@@ -318,6 +324,7 @@ export const StyledFooter = styled.div`
 
     @media (max-width: 600px) {
       flex-wrap: wrap;
+      margin-bottom: 0.6rem;
     }
   }
 

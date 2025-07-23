@@ -71,6 +71,7 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
             name="input-modal"
             onChange={(e) => setEditValue(e.target.value)}
             autoFocus
+            placeholder="Type Anything..."
           />
           <BtnModalDiv>
             <DenyButton onClick={() => setOpenEditModal(false)}>Cancel</DenyButton>

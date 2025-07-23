@@ -7,7 +7,7 @@ import {
 } from '../Icons/Icons';
 import Modal from '@mui/material/Modal';
 import Tooltip from '@mui/material/Tooltip';
-import { DeleteButton, DenyButton, EditInput, SaveButton, StyledCardOptionsDiv, StyledModalDiv } from '../styles/StyledComponents';
+import { BtnModalDiv, BtnOption, DeleteButton, DenyButton, EditInput, SaveButton, StyledCardOptionsDiv, StyledModalDiv } from '../styles/StyledComponents';
 
 
 const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentText }) => {
@@ -31,24 +31,24 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
   return (
     <StyledCardOptionsDiv>
       <Tooltip title="Move Up">
-        <button className='btn-option' onClick={onMoveUp} >
+        <BtnOption onClick={onMoveUp} >
           <StyledArrowUpwardIcon />
-        </button>
+        </BtnOption>
       </Tooltip>
       <Tooltip title="Move Down">
-        <button className='btn-option' onClick={onMoveDown}>
+        <BtnOption onClick={onMoveDown}>
           <StyledArrowDownwardIcon />
-        </button>
+        </BtnOption>
       </Tooltip>
       <Tooltip title="Edit Task">
-        <button className='btn-option' onClick={() => setOpenEditModal(true)}>
+        <BtnOption onClick={() => setOpenEditModal(true)}>
           <StyledEditNoteIcon />
-        </button>
+        </BtnOption>
       </Tooltip>
       <Tooltip title="Delete Task">
-        <button className='btn-option' onClick={() => setOpenDeleteModal(true)}>
+        <BtnOption onClick={() => setOpenDeleteModal(true)}>
           <StyledDeleteIcon />
-        </button>
+        </BtnOption>
       </Tooltip>
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
         <StyledModalDiv>
@@ -56,10 +56,10 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
           <p>
             Are you sure you want to delete this <b>Task</b>?
           </p>
-          <div className='btn-modal-div'>
+          <BtnModalDiv>
             <DenyButton onClick={() => setOpenDeleteModal(false)}>No</DenyButton>
             <DeleteButton onClick={confirmDelete}>Delete</DeleteButton>          
-          </div>
+          </BtnModalDiv>
         </StyledModalDiv>
       </Modal>
       <Modal open={openEditModal} onClose={() => setOpenEditModal(false)}>
@@ -68,14 +68,14 @@ const CardOptions = ({ onDelete, onEditConfirm, onMoveUp, onMoveDown, currentTex
           <EditInput
             type="text"
             value={editValue}
-            className='input-modal'
+            name="input-modal"
             onChange={(e) => setEditValue(e.target.value)}
             autoFocus
           />
-          <div className='btn-modal-div'>
+          <BtnModalDiv>
             <DenyButton onClick={() => setOpenEditModal(false)}>Cancel</DenyButton>
             <SaveButton onClick={confirmEdit}>Save</SaveButton>
-          </div>
+          </BtnModalDiv>
         </StyledModalDiv>
       </Modal>
     </StyledCardOptionsDiv>

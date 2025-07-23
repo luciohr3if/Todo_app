@@ -3,11 +3,12 @@ export const lightTheme = {
   background: "#ffffff",
   text: "#212529",
   cardIconColor: "#343A40",
-  card: "#e0e0e0",
+  card: "#DEE2E6",
   button: "#0077cc",
   buttonText: "#ffffff",
   inputBackground: "#DEE2E6",
-  inputText: "#998c8b",
+  inputPlaceholder: "#998c8b",
+  inputText: "#212529",
   footerBackground: "#6C757D",
   modalBackground: "#ffffff"
 };
@@ -21,7 +22,8 @@ export const darkTheme = {
   button: "#3399ff",
   buttonText: "#000000",
   inputBackground: "#495057",
-  inputText: "#CED4DA",
+  inputPlaceholder: "#CED4DA",
+  inputText: "#ffffff",
   footerBackground: "#343A40",
   modalBackground: "#6C757D"
 };

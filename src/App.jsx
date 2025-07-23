@@ -10,7 +10,7 @@ import { GlobalStyle, MainDiv } from "./styles/StyledComponents";
 
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const [todos, setTodos] = useState([]);
   const [loaded, setLoaded] = useState(false);
 

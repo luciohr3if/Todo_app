@@ -17,7 +17,7 @@ export const StyledPushPinIcon = styled(PushPinIcon)<PinIconProps>`
     ? theme.mode === "dark"
       ? "#9d0208"
       : "#c60b0b"
-    : theme.inputText
+    : theme.inputPlaceholder
   };
   margin-right: auto;
   cursor: pointer;

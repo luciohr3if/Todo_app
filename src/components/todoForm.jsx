@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Form, FormBtnsDiv, FormInput, FormInputDiv, InputFeedback, StyledModalDiv } from "../styles/StyledComponents";
+import { AddButton, BtnModalDiv, DeleteAllButton, DeleteButton, DenyButton, Form, FormBtnsDiv, FormInput, FormInputDiv, InputFeedback, StyledModalDiv } from "../styles/StyledComponents";
 import Modal from "@mui/material/Modal";
 
 const TodoForm = ({ setTodos }) => {
@@ -54,16 +54,9 @@ const TodoForm = ({ setTodos }) => {
             {error || `${input.length}/500 characters`}
           </InputFeedback>
         </FormInputDiv>
-
         <FormBtnsDiv>
-          <button className="add-btn" type="submit">ADD TASK</button>
-          <button
-            className="delete-btn"
-            type="button"
-            onClick={() => setOpenDeleteModal(true)}
-          >
-            DELETE ALL TASKS
-          </button>
+          <AddButton type="submit">ADD TASK</AddButton>
+          <DeleteAllButton type="button" onClick={() => setOpenDeleteModal(true)}>DELETE ALL TASKS</DeleteAllButton>
         </FormBtnsDiv>
       </Form>
       <Modal open={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
@@ -72,15 +65,15 @@ const TodoForm = ({ setTodos }) => {
           <p>
             Are you sure you want to delete <b>All Tasks</b>?
           </p>
-          <div className='btn-modal-div'>
-            <button className="deny-btn" onClick={() => setOpenDeleteModal(false)}>No</button>
-            <button className="delete-btn" onClick={() => {
+          <BtnModalDiv>
+            <DenyButton onClick={() => setOpenDeleteModal(false)}>Cancel</DenyButton>
+            <DeleteButton onClick={() => {
                 setTodos([]); 
                 setOpenDeleteModal(false)
-              }}
-              >Delete
-            </button>
-          </div>
+              }}>
+                Delete
+            </DeleteButton>
+          </BtnModalDiv>
         </StyledModalDiv>
       </Modal>
     </>

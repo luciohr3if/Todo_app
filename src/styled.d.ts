@@ -9,6 +9,7 @@ declare module "styled-components" {
     button: string;
     buttonText: string;
     inputBackground: string;
+    inputPlaceholder: string;
     inputText: string;
     cardIconColor: string;
     footerBackground: string;

@@ -65,6 +65,7 @@ export const Form = styled.form`
   @media (max-width: 600px) {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2.5rem;
   }
 `;
 
@@ -78,7 +79,7 @@ export const FormInput = styled.input`
   color: ${({theme}) => theme.text};
 
   &::placeholder {
-    color: ${({ theme }) => theme.inputText};
+    color: ${({ theme }) => theme.inputPlaceholder};
   }
 `;
 
@@ -97,7 +98,7 @@ interface InputProps {
 
 export const InputFeedback = styled.div<InputProps>`
   font-size: 0.85rem;
-  color: ${({theme, $error}) => $error ? "#c60b0b" :  theme.inputText};
+  color: ${({theme, $error}) => $error ? "#c60b0b" :  theme.inputPlaceholder};
   text-align: left;
   margin-left: 0.125rem;
 `;
@@ -108,38 +109,37 @@ export const FormBtnsDiv = styled.div`
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
+`
 
-  .add-btn {
-    padding: 0.9375rem;
-    background-color: #1665afff;
-    color: #ffffff;
-    border: none;
-    outline-style: none;
-    border-radius: 0.3125rem;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1em;
+const BaseButton = styled.button`
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  border: none;
+  font-size: 1em;
+  outline: none;
+  font-weight: 500;
+  cursor: pointer;
+`
 
-    &:hover {
+export const AddButton = styled(BaseButton)`
+  background-color: #1665afff;
+  padding: 0.9375rem;
+  font-weight: bold;
+
+  &:hover {
       background-color: #08559d;
     }
-  }
+`
 
-  .delete-btn {
-    padding: 0.9375rem;
-    background-color: #c61f2aff;
-    color: #ffffff;
-    border: none;
-    border-radius: 0.3125rem;
-    outline-style: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1em;
+export const DeleteAllButton = styled(BaseButton)`
+  background-color: #c61f2aff;
+  padding: 0.9375rem;
+  font-weight: bold;
 
-    &:hover {
+  &:hover {
       background-color: #a20a0a;
     }
-  }
 `
 
 export const List = styled.ul`
@@ -197,6 +197,11 @@ export const EditInput = styled.input`
   font-size: 1.125rem;
   border-radius: 0.3125rem;
   border: none;
+  width: auto;
+  background-color: ${({theme}) => theme.inputBackground};
+  margin-top: 0.9375rem;
+  border: 0.125rem solid #ccc;
+  color: ${({theme}) => theme.inputText};
 `;
 
 export const StyledCardOptionsDiv = styled.div`
@@ -207,28 +212,17 @@ export const StyledCardOptionsDiv = styled.div`
   gap: 0.3125rem;
   margin-left: auto;
 
-  .btn-option {
-    background-color: transparent;
-    padding: 0.3125rem;
-    border: none;
-    outline-style: none;
-    cursor: pointer;
-  }
-
   @media (max-width: 600px) {
     flex-direction: column;
     gap: 0.5rem;
   }
 `
 
-const BaseButton = styled.button`
-  color: #ffffff;
-  border-radius: 8px;
-  padding: 0.6em 1.2em;
+export const BtnOption = styled.button`
+  background-color: transparent;
+  padding: 0.3125rem;
   border: none;
-  font-size: 1em;
-  outline: none;
-  font-weight: 500;
+  outline-style: none;
   cursor: pointer;
 `
 
@@ -256,7 +250,6 @@ export const SaveButton = styled(BaseButton)`
   }
 `
 
-
 export const StyledModalDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -269,6 +262,7 @@ export const StyledModalDiv = styled.div`
   border-radius: 0.78125rem;
   padding: 0.9375rem;
   width: 25rem;
+  max-width: 82.5%;
 
   h2 {
     margin: 0;
@@ -282,25 +276,17 @@ export const StyledModalDiv = styled.div`
     margin-top: 0.9375rem;
     font-size: 1.125rem;
   }
+`
 
-  .btn-modal-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-left: auto;
-    margin-top: 0.75rem;
-    width: 100%;
-    gap: 0.625rem;
-    border: none;
-  }
-
-  .input-modal {
-    width: auto;
-    background-color: ${({theme}) => theme.inputBackground};
-    margin-top: 0.9375rem;
-    border: 0.125rem solid #ccc;
-    color: ${({theme}) => theme.inputText};
-  }
+export const BtnModalDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-top: 0.75rem;
+  width: 100%;
+  gap: 0.625rem;
+  border: none;
 `
 
 export const StyledFooter = styled.div`

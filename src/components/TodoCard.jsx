@@ -1,6 +1,6 @@
 import { StyledPushPinIcon } from '../Icons/Icons';
 import { BtnOption, Card } from '../styles/StyledComponents';
-import CardOptions from './CardOptions';
+import CardOptions from './cardoptions';
 import Tooltip from '@mui/material/Tooltip';
 
 const TodoCard = ({

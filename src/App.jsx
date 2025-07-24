@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { loadFromStorage, saveToStorage } from "./utils/storage";
-import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm";
+import TodoForm from "./components/todoForm";
 import ThemeToggle from "./components/ThemeToggle";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
-import Footer from "./components/Footer";
+import Footer from "./components/footer";
 import { GlobalStyle, MainDiv } from "./styles/StyledComponents";
+import TodoList from "./components/todoList";
 
 
 function App() {

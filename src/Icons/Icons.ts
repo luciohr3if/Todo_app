@@ -1,6 +1,5 @@
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import CopyrightIcon from '@mui/icons-material/Copyright';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditNoteIcon from '@mui/icons-material/EditNote';
@@ -50,10 +49,6 @@ export const StyledLightModeIcon = styled(LightModeIcon)`
 export const StyledDarkModeIcon = styled(DarkModeIcon)`
     color: ${({ theme }) => theme.text};
     transition: color 0.3s ease;
-`
-
-export const StyledCopyrightIcon = styled(CopyrightIcon)`
-    color: #ffffff;
 `
 
 export const StyledGitHubIcon = styled(GitHubIcon)`

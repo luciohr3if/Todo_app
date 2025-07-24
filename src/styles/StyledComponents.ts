@@ -27,7 +27,7 @@ export const MainDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-`
+`;
 
 export const StyledThemeToggle = styled.div`
   display: flex;
@@ -38,7 +38,7 @@ export const StyledThemeToggle = styled.div`
   margin-bottom: 0.625rem;
   margin-top: 1.563rem;
   margin-right: 1.563rem;
-`
+`;
 
 export const StyledSwitch = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-thumb': {
@@ -109,18 +109,18 @@ export const FormBtnsDiv = styled.div`
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const BaseButton = styled.button`
   color: #ffffff;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 0.6em 1.2em;
   border: none;
   font-size: 1em;
   outline: none;
   font-weight: 500;
   cursor: pointer;
-`
+`;
 
 export const AddButton = styled(BaseButton)`
   background-color: #1665afff;
@@ -130,7 +130,7 @@ export const AddButton = styled(BaseButton)`
   &:hover {
       background-color: #08559d;
     }
-`
+`;
 
 export const DeleteAllButton = styled(BaseButton)`
   background-color: #c61f2aff;
@@ -140,7 +140,7 @@ export const DeleteAllButton = styled(BaseButton)`
   &:hover {
       background-color: #a20a0a;
     }
-`
+`;
 
 export const List = styled.ul`
   display: flex;
@@ -150,23 +150,20 @@ export const List = styled.ul`
   list-style: none;
   gap: 0.938rem;
   margin: 0 auto;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
   padding: 0;
   width: 100%;
   max-width: 56.25rem;
-
-  .list-item {
-    width: auto;
-    max-width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 export const ListItem = styled.li`
-  width: 100%;
-`
+  width: auto;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Card = styled.div`
   display: flex;
   flex-direction: row;
@@ -220,15 +217,15 @@ export const StyledCardOptionsDiv = styled.div`
     flex-direction: column;
     gap: 0.5rem;
   }
-`
+`;
 
 export const BtnOption = styled.button`
   background-color: transparent;
   padding: 0.3125rem;
   border: none;
-  outline-style: none;
+  outline: none;
   cursor: pointer;
-`
+`;
 
 export const DeleteButton = styled(BaseButton)`
   background-color: #c61f2aff;
@@ -236,7 +233,7 @@ export const DeleteButton = styled(BaseButton)`
   &:hover {
     background-color: #a20a0a;
   }
-`
+`;
 
 export const DenyButton = styled(BaseButton)`
   background-color: #212529;
@@ -244,7 +241,7 @@ export const DenyButton = styled(BaseButton)`
   &:hover {
     background-color: #0f1012ff;
   }
-`
+`;
 
 export const SaveButton = styled(BaseButton)`
   background-color: #3f751bff;
@@ -252,7 +249,7 @@ export const SaveButton = styled(BaseButton)`
   &:hover {
     background-color: #335b18ff;
   }
-`
+`;
 
 export const StyledModalDiv = styled.div`
   display: flex;
@@ -280,7 +277,7 @@ export const StyledModalDiv = styled.div`
     margin-top: 0.9375rem;
     font-size: 1.125rem;
   }
-`
+`;
 
 export const BtnModalDiv = styled.div`
   display: flex;
@@ -291,7 +288,7 @@ export const BtnModalDiv = styled.div`
   width: 100%;
   gap: 0.625rem;
   border: none;
-`
+`;
 
 export const StyledFooter = styled.div`
   display: flex;
@@ -301,35 +298,17 @@ export const StyledFooter = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({theme}) => theme.footerBackground};
-  gap: 1.25rem;
-  height: 60px;
+  gap: 7.5rem;
+  height: 3.125rem;
 
   @media (max-width: 600px) {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.2rem;
+    gap: 4rem;
   }
+`;
 
-  h2 {
-    color: #ffffff;
-    margin: 0;
-  }
-
-  .icon-footer-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.46875rem;
-
-    @media (max-width: 600px) {
-      flex-wrap: wrap;
-      margin-bottom: 0.6rem;
-    }
-  }
-
-  .icon-footer-div img {
-    width: 2.1875rem;
-    height: 2.1875rem;  
-  }
-`
+export const StyledSpan = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.469rem;
+  color: #ffffff;
+`;

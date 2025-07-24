@@ -42,7 +42,7 @@ function App() {
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyle />
         <ThemeToggle toggleTheme={toggleTheme} currentTheme={theme} />        
-        <h1>MY TO-DO LIST</h1>
+        <h1>MY TASKS</h1>
         <TodoForm setTodos={setTodos} />
         <TodoList todos={todos} setTodos={setTodos} />
         <Footer />

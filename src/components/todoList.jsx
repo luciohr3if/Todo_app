@@ -1,4 +1,4 @@
-import { List } from '../styles/StyledComponents';
+import { List, ListItem } from '../styles/StyledComponents';
 import TodoCard from './TodoCard';
 
 
@@ -46,7 +46,7 @@ function TodoList({ todos, setTodos }) {
   return (
     <List>
       {sortedTodos.map((todo, index) => (
-        <li className="list-item" key={todo.id}>
+        <ListItem key={todo.id}>
           <TodoCard
             text={todo.text}
             onDelete={() => remove(todo.id)}
@@ -56,7 +56,7 @@ function TodoList({ todos, setTodos }) {
             important={todo.important}
             onToggleImportant={() => toggleImportant(todo.id)}
           />
-        </li>
+        </ListItem>
       ))}
     </List>
   );

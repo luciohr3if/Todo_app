@@ -1,25 +1,15 @@
-import { StyledCopyrightIcon, StyledGitHubIcon } from "../Icons/Icons"
-import { StyledFooter } from "../styles/StyledComponents"
+import { StyledGitHubIcon } from "../Icons/Icons"
+import { StyledFooter, StyledSpan } from "../styles/StyledComponents"
 
 const Footer = () => {
+    const date = new Date().getFullYear()
     return (
         <StyledFooter>
-            <div style={{display: "flex", flexDirection: "row", alignItems: "center", gap: "0.6rem", justifyContent: "center"}}>
+            <StyledSpan>
                 <StyledGitHubIcon />
                 <a href="https://github.com/luciohr3if" target="_blank">luciohr3if</a>
-            </div>
-            <h2>MADE WITH</h2>
-            <div className="icon-footer-div">
-                <img src=".\public\reactIcon.svg" alt="React Icon" />
-                <img src=".\public\nodeIcon.svg" alt="Node Icon" />
-                <img src=".\public\muiIcon.svg" alt="MUI Icon" />
-            </div>
-            <div style={{display: "flex", flexDirection: "row", alignItems: "center", gap: "0.6rem", justifyContent: "center"}}>
-                <StyledCopyrightIcon/> 
-                <p>
-                    {new Date().getFullYear()} All rights reserved
-                </p>
-            </div>
+            </StyledSpan>    
+            <StyledSpan>© {date}</StyledSpan>
         </StyledFooter>
     )
 }

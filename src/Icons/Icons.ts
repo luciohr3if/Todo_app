@@ -20,7 +20,7 @@ export const StyledPushPinIcon = styled(PushPinIcon)<PinIconProps>`
       : "#c60b0b"
     : theme.inputPlaceholder
   };
-  margin-right: auto;
+  margin-right: 1.25rem;
   cursor: pointer;
   transition: color 0.3s ease;
 `;

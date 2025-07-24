@@ -169,7 +169,7 @@ export const Card = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625rem 0.9375rem;
+  padding: 0.625rem 0.8rem;
   gap: 0.625rem;
   border-radius: 0.46875rem;
   margin: 0;
